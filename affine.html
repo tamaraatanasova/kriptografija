@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Афина Шифра</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="afinascript.js" defer></script>
+</head>
+<body>
+    <nav>
+        <img src="logo.png" alt="Криптографија Лого" class="logo">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="affine.html" class="active">Афина</a></li>
+            <li><a href="hill.html">Hill</a></li>
+            <li><a href="adfgvx.html">ADFGVX</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>🔐 Афина Шифра</h1>
+        <p>Афина шифрата е моноалфабетска замена базирана на афинска трансформација: <br>
+        <strong>E(x) = (A * x + B) mod 26</strong>, каде што A и B се клучеви.</p>
+        <br>
+        <label for="inputText">Внесете текст (само букви A-Z):</label>
+        <input type="text" id="inputText" placeholder="Пример: NEDELA">
+
+        <h2>🔑 Внесете клучеви:</h2>
+        <label for="keyA">A (мора да биде обратлив mod 26):</label>
+        <input type="number" id="keyA" placeholder="5">
+        
+        <label for="keyB">B:</label>
+        <input type="number" id="keyB" placeholder="8">
+        <br>
+        <button onclick="encrypt()">🔒 Шифрирај</button>
+        <button onclick="decrypt()">🔑 Дешифрирај</button>
+
+        <h2>📜 Резултат:</h2>
+        <p id="result" class="result-box"></p>
+
+        <button id="showStepsBtn" onclick="showSteps()" style="display: none;">📜 Прикажи пресметка</button>
+        <div id="steps" class="steps-box" style="display: none;">
+            <h2>📌 Чекори на пресметка:</h2>
+            <p id="step1"></p>
+            <p id="step2"></p>
+            <p id="step3"></p>
+            <p id="step4"></p>
+        </div>
+    </div>
+</body>
+</html>

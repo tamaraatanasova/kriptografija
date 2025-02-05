@@ -1,0 +1,172 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #306632;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+nav {
+    background: #333;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+  }
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  nav ul li {
+    margin: 0 15px;
+  }
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+  }
+  nav ul li a:hover,
+  nav ul li a.active {
+    background: #33944a;
+    border-radius: 5px;
+  }
+  nav .logo {
+    max-height: 40px;
+  }
+
+.container {
+    background: #e1faca;
+    width: 55%;
+    margin: 20px auto;
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: #333;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button.decrypt {
+    background-color: #007bff;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+    padding: 10px;
+    background: #e9ecef;
+    border-radius: 5px;
+}
+.show-steps {
+    background-color: #ffc107;
+    color: black;
+    display: none; /* Почетно сокриено */
+}
+
+.show-steps:hover {
+    background-color: #e0a800;
+}
+
+.steps {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: left;
+}
+table {
+    margin: 20px auto; /* Центрирање на табелата */
+    border-collapse: collapse;
+}
+
+td {
+    padding: 5px;
+    text-align: center;
+}
+
+input[type="number"] {
+    width: 50px;
+    text-align: center;
+}
+
+textarea {
+    width: 100%;           
+    max-width: 100%;       
+    box-sizing: border-box; 
+  }
+@media (max-width: 768px) {
+    .container {
+      width: 90%;
+      padding: 20px;
+    }
+    nav {
+      padding: 10px 20px;
+    }
+    nav ul li {
+      margin: 0 10px;
+    }
+    nav ul li a {
+      font-size: 16px;
+      padding: 8px 12px;
+    }
+    nav .logo {
+      max-height: 30px;
+    }
+  }
+  @media (max-width: 480px) {
+    nav {
+      flex-direction: column;
+    }
+    nav ul {
+      flex-direction: column;
+      margin-top: 10px;
+    }
+    nav ul li {
+      margin: 5px 0;
+    }
+    h1 {
+      font-size: 32px;
+    }
+    p, h3 {
+      font-size: 16px;
+    }
+    .developer {
+      width: 100%;
+    }
+  }

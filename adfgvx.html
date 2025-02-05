@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADFGVX Шифра</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="adfgvx.js" defer></script>
+</head>
+<body>
+  <nav>
+    <img src="logo.png" alt="Криптографија Лого" class="logo">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="affine.html">Афина</a></li>
+      <li><a href="hill.html">Hill</a></li>
+      <li><a href="adfgvx.html" class="active">ADFGVX</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>🔐 ADFGVX Шифра</h1>
+    <p>
+      ADFGVX е шифра со две фази: <br>
+      1️⃣ <strong>Замена со Полибиева матрица (6x6) - Клуч 1</strong> <br>
+      2️⃣ <strong>Транспозиција со клучен збор - Клуч 2</strong>
+    </p>
+
+    <label for="inputText">Внесете текст (букви и броеви):</label>
+    <input type="text" id="inputText" placeholder="Пример: NAPADNETE">
+    <br>
+    <h2>🔑 Внесете клучеви:</h2>
+    <br>
+    <label for="squareKey">Внесете клучен збор (Клуч 1):</label>
+    <input type="text" id="squareKey"  placeholder="Пример: RAZMENETE">
+    <br>
+    <label for="transpositionKey">Внесете клучен збор (Клуч 2):</label>
+    <input type="text" id="transpositionKey" placeholder="Пример: PORAKI">
+    <br>
+    <button onclick="encrypt()">🔒 Шифрирај</button>
+    <button onclick="decrypt()">🔑 Дешифрирај</button>
+    <h2>📜 Резултат:</h2>
+    <!-- Можете да користите textarea за резултат -->
+    
+    <textarea id="outputText" class="result-box" rows="4" cols="50"></textarea>
+    
+
+    
+    <button id="showStepsBtn" onclick="showSteps()" style="display: none;margin: 20px auto;">📜 Прикажи пресметка</button>
+        <div id="steps" class="steps-box" style="display: none;">
+          <h2>📌 Чекори на пресметка:</h2>
+          
+      </div>
+  </div>
+</body>
+</html>
