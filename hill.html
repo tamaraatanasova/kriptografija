@@ -1,53 +1,73 @@
-<!DOCTYPE html>
-<html lang="mk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hill Шифра</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="hill.js" defer></script>
-</head>
-<body>
-    <nav>
-        <img src="logo.png" alt="Криптографија Лого" class="logo">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="affine.html">Афина</a></li>
-            <li><a href="hill.html" class="active">Hill</a></li>
-            <li><a href="adfgvx.html">ADFGVX</a></li>
-        </ul>
-    </nav>
+    <!DOCTYPE html>
+    <html lang="mk">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hill Шифра</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="./js/hill.js" defer></script>
+    </head>
+    <body>
+        <nav>
+            <img src="logo.png" alt="Криптографија Лого" class="logo">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="affine.html">Афина</a></li>
+                <li><a href="hill.html" class="active">Hill</a></li>
+                <li><a href="adfgvx.html">ADFGVX</a></li>
+            </ul>
+        </nav>
 
-    <div class="container">
-        <h1>🔐 Hill Шифра (2x2)</h1>
-        <p>Hill шифрата е полиалфабетска шифра базирана на матрично множење. Потребен е клуч во форма на матрица (2x2) и текст кој ќе биде шифриран.</p>
-        <br>
-        <label for="inputText">Внесете текст (само букви A-Z):</label>
-        <input type="text" id="inputText" placeholder="Пример: HELLO">
-
-        <h2>🔑 Внесете клучеви на матрица (2x2):</h2>
-        <div class="matrix-input">
-            <input type="number" id="key11" placeholder="6">
-            <input type="number" id="key12" placeholder="17"><br>
-            <input type="number" id="key21" placeholder="12">
-            <input type="number" id="key22" placeholder="9">
-        </div>
-
-        <button onclick="encrypt()">🔒 Шифрирај</button>
-        <button onclick="decrypt()">🔑 Дешифрирај</button>
-
-        <h2>📜 Резултат:</h2>
-        <p id="result" class="result-box"></p>
-
+        <div class="container">
+            <h1>🔐 Hill Шифра</h1>
+            <p>Hill шифрата е полиалфабетска шифра базирана на матрично множење. Внесете матрица и текст.</p>
+            
+            <label for="matrixSize">Изберете големина на матрица:</label>
+            <select id="matrixSize" onchange="updateMatrixInputs()">
+                <option value="2" selected>2x2</option>
+                <option value="3">3x3</option>
+            </select>
         
-        <button id="showStepsBtn" onclick="showSteps()" style="display: none;">📜 Прикажи пресметка</button>
-        <div id="steps" class="steps-box" style="display: none;">
-            <h2>📌 Чекори на пресметка:</h2>
-            <p id="step1"></p>
-            <p id="step2"></p>
-            <p id="step3"></p>
-            <p id="step4"></p>
+            <label for="inputText">Внесете текст (само A-Z):</label>
+            <input type="text" id="inputText" placeholder="Пример: HELLO">
+        
+            <h2>🔑 Внесете клучна матрица:</h2>
+            <div id="matrixInputs"></div> 
+        
+            <button onclick="encrypt()">🔒 Шифрирај</button>
+            <button onclick="decrypt()">🔑 Дешифрирај</button>
+
+            <div id="result-container">
+                <h2>📜 Резултат:</h2>
+                <p id="result"></p>
+            </div>
+
+            <button id="toggleStepsBtn" onclick="toggleSteps()" style="display: none;">📜 Покажи пресметка</button>
+            <pre id="steps" class="steps-box" style="display: none;"></pre>
         </div>
-    </div>
-</body>
-</html>
+
+        <script>
+            window.onload = function() {
+                updateMatrixInputs();
+            };
+
+            function updateMatrixInputs() {
+                const size = parseInt(document.getElementById("matrixSize").value);
+                const matrixInputsDiv = document.getElementById("matrixInputs");
+                matrixInputsDiv.innerHTML = "";
+                for (let i = 0; i < size; i++) {
+                    const rowDiv = document.createElement("div");
+                    for (let j = 0; j < size; j++) {
+                        const input = document.createElement("input");
+                        input.type = "number";
+                        input.id = `key${i}${j}`;
+                        input.placeholder = `k${i}${j}`;
+                        input.style.width = "50px";
+                        rowDiv.appendChild(input);
+                    }
+                    matrixInputsDiv.appendChild(rowDiv);
+                }
+            }
+        </script>
+    </body>
+    </html>
